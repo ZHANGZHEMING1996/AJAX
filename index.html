@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <h1>ajax demo</h1>
+  <button type="button" name="button">获取我的github信息</button>
+  <p id="div"></p>
+  <script src="./jquery-1.11.1.js">
+
+  </script>
+  <script>
+  // var  xmlhttp=new XMLHttpRequest();
+  // xmlhttp.onreadystatechange=function()
+  // {
+  // if (xmlhttp.readyState==4 && xmlhttp.status==200)
+  //   {
+  //     var resobj =JSON.parse(xmlhttp.responseText).posts
+  //     for (var i = 0; i < resobj.length; i++) {
+  //     console.log(resobj[i].content);
+  //     }
+  //   }
+  // }
+  // xmlhttp.open("GET","http://api.duopingshidai.com/api/posts",true);
+  // xmlhttp.send()
+  var obj={phoneNumber:'123456'};
+  var jsonobj=JSON.stringify(obj);
+  jQuery.ajax({
+    type:'POST',
+    data:jsonobj,
+    contentType:'application/json',
+    url:"http://digitalcity.duopingshidai.com/",
+    success:function(res,status){
+      console.log(res,status);
+    },
+    error:function(xml,msg){
+      alert(msg)
+    }
+
+
+})
+
+
+
+  </script>
+</body>
+</html>
